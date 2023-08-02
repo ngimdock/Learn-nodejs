@@ -4,7 +4,12 @@ const server = http.createServer((req, res) => {
   if (req.url === "/") {
     res.end(`<h1>Home page</h1>`);
   } else if (req.url === "/about") {
-    console.log("About page");
+    // Blocking code
+    for (let i = 0; i < 1000; i++) {
+      for (let j = 0; j < 1000; j++) {
+        console.log(`${i} ${j}`);
+      }
+    }
     res.end(`<h1>About page</h1>`);
   } else {
     res.end(`
